@@ -10,6 +10,9 @@ def begin():
      """)
     tries = 3
     while True:
+        if tries <= 0:
+            print("You run out of tries")
+            exit()
         print("\n")
         print("Input the following code")
         captcha = random.randint(100001, 999999)
@@ -19,11 +22,10 @@ def begin():
         else:
             print(str(captcha))
             choice = input("-- > ")
-            if choice != captcha:
+            if choice != str(captcha):
                 tries -= 1
                 print("You got it wrong, try again")
                 print("Tries left " + str(tries))
             else:
                 print("Succes")
-                break
-
+                return True
