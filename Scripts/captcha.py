@@ -21,7 +21,7 @@ def begin():
             exit()
         else:
             print(str(captcha))
-            choice = input("-- > ")
+            choice = input("    ›› ")
             if choice != str(captcha):
                 tries -= 1
                 print("You got it wrong, try again")
