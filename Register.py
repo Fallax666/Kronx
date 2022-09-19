@@ -1,3 +1,5 @@
+import random
+from os.path import exists as file_exists
 from Scripts import logo
 from Scripts import colors
 from Scripts import captcha
@@ -74,3 +76,30 @@ def register():
                     if password_contains_upper is not True:
                         print("Password has no upper\n Try again\n")
                         continue
+                    user_id = (str(user_password[0:1]) + str(random.randint(1000000001, 9999999999)))
+                    if password_contains_special and password_contains_digit and password_contains_upper:
+                        if password_contains_lower:
+                            print("Account created !")
+                            print(f"\n\n\n\nUsername:{user_name}\nID:{user_id}\nPassword{user_password}")
+                            break
+                        else:
+                            print("Password has no lower characters !")
+                            register()
+                            break
+                    else:
+                        print("Something went wrong")
+                        register()
+            #
+            #     ---> TEMP DATABASE based on a text document
+            #
+            if file_exists("Data/Accounts"):
+                f = open("Data/Accounts", "w")
+                f.write(f">{user_name}>{user_id}>{user_password}>")
+                f.close()
+            else:
+                f = open("Data/Accounts", "x")
+                f.close()
+                f = open("Data/Accounts", "w")
+                f.write(f">{user_name}>{user_id}>{user_password}>")
+                f.close()
+            break
