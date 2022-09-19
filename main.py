@@ -1,4 +1,7 @@
 from Scripts import colors
+import Register
+import log_in
+
 while True:
     print(colors.WARNING + '''
         ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
@@ -20,9 +23,9 @@ while True:
         print(str(choice) + "is not a valid option\n Please try again !")
         continue
     if choice == "1":
-        print("")
+        Register.register()
     if choice == "2":
-        print("")
+        log_in.begin()
     if choice == "3":
         print("")
     if choice == "0":
