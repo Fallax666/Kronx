@@ -97,11 +97,11 @@ def register():
                                 #     ________________________________________
                                 #
                             break
-                        else:
+                        else:   # If somehow the code has flaws
                             print("Password has no lower characters !")
                             register()
                             break
-                    else:
+                    else:  # just in case
                         print("Something went wrong")
                         register()
 
